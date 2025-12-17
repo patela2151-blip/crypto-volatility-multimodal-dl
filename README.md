@@ -1,78 +1,64 @@
 # Cryptocurrency Volatility Prediction Using Multimodal Deep Learning
 
-## 📌 Overview
-This project implements a **multimodal deep learning framework** to predict **Bitcoin price volatility** by combining:
-- **Financial time-series data** (Bitcoin prices and returns)
-- **Social media sentiment** extracted from Bitcoin-related Twitter data
-
-An **LSTM (Long Short-Term Memory)** network is used to model temporal dependencies, while **BERT-based sentiment analysis** captures market sentiment from tweets. The project demonstrates a complete, optimised, and reproducible deep learning pipeline suitable for academic coursework and professional portfolios.
+This repository presents a multimodal deep learning framework for predicting Bitcoin volatility by integrating numerical market indicators with social media sentiment extracted from Twitter. The system combines an LSTM-based time-series model with transformer-based sentiment analysis to capture both quantitative and qualitative market drivers.
 
 ---
 
-## 🎯 Objectives
-- Predict short-term cryptocurrency volatility
-- Combine numerical market data with textual sentiment features
-- Apply deep learning techniques to real-world financial data
-- Optimise computational performance for large-scale NLP tasks
+## 📌 Project Overview
+
+- **Task**: Bitcoin volatility prediction
+- **Data Sources**:
+  - BTC-USD market data (Yahoo Finance)
+  - Twitter sentiment (Bitcoin-related tweets)
+- **Models**:
+  - BERT-based sentiment analysis
+  - LSTM for volatility forecasting
+- **Frameworks**: PyTorch, Transformers
+- **Runtime**: ~4 minutes (CPU)
 
 ---
 
-## 🧠 Technologies Used
-- **Python**
-- **PyTorch** – deep learning framework
-- **LSTM** – time-series modelling
-- **HuggingFace Transformers** – BERT-based sentiment analysis
-- **Pandas / NumPy** – data processing
-- **Matplotlib** – visualisation
-- **yFinance** – Bitcoin market data
+## 🧠 Methodology
+
+1. **Data Preprocessing**
+   - Tweet cleaning and daily sampling
+   - Batch sentiment inference
+   - Daily sentiment aggregation
+
+2. **Feature Engineering**
+   - Log returns
+   - Rolling volatility
+   - Mean and variance of sentiment
+
+3. **Model Architecture**
+   - LSTM with rolling window inputs
+   - Smooth L1 loss for robustness
+   - Adam optimizer
+
+4. **Evaluation**
+   - MSE, RMSE, MAE
+   - Residual analysis
+   - Rolling RMSE
 
 ---
 
-## 📊 Data Sources
-- **Bitcoin Tweets Dataset** – public Twitter dataset
-- **Bitcoin price data** (`BTC-USD`) from Yahoo Finance
+## 📊 Results
 
-### Sentiment Processing Optimisation
-| Stage | Before | After |
-|------|--------|-------|
-| Tweet count | ~170,000 | ~10,000–20,000 |
-| Sentiment inference | 1-by-1 | Batch |
-| Runtime | 3–4 hours | ~10–15 minutes |
+| Metric | Value |
+|------|------|
+| RMSE | 0.00517 |
+| MAE  | 0.00380 |
+| Runtime | 3.84 minutes |
 
-To ensure computational feasibility, a fixed number of tweets per day were sampled and sentiment inference was performed in batches.
+The model produces smooth and stable volatility forecasts while capturing medium-term market dynamics.
 
 ---
 
-## ⚙️ Methodology
-1. Load and clean Bitcoin-related tweets
-2. Sample tweets per day to construct representative sentiment proxies
-3. Extract sentiment scores using a pre-trained BERT model
-4. Aggregate daily sentiment statistics (mean, standard deviation, volume)
-5. Download Bitcoin price data and compute returns and realised volatility
-6. Merge sentiment and numerical features
-7. Construct rolling sequences for LSTM input
-8. Train an LSTM-based regression model
-9. Evaluate using regression metrics and diagnostic plots
+## 📂 Repository Structure
 
----
-
-## 📈 Model Evaluation
-The model is evaluated using:
-- **Mean Squared Error (MSE)**
-- **Root Mean Squared Error (RMSE)**
-- **Mean Absolute Error (MAE)**
-
-### Visual Analysis
-The project includes multiple diagnostic plots:
-- Training vs validation loss curve
-- Actual vs predicted volatility
-- Residual error time series
-- Residual distribution histogram
-- Predicted vs actual scatter plot
-- Rolling RMSE for temporal stability
-
-These plots support interpretability and performance analysis.
-
----
-
-## 📂 Project Structure
+```text
+src/        → Core implementation  
+figures/    → Output visualisations  
+data/       → Processed sentiment data  
+models/     → Trained LSTM model  
+report/     → IEEE-formatted final report  
