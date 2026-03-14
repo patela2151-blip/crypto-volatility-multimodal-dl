@@ -1,9 +1,7 @@
 # ============================================================
-# Cryptocurrency Volatility Prediction (FINAL SUBMISSION VERSION)
-# Leakage-safe + Experiments + Fair Baseline Alignment + Bootstrap CIs
+# Cryptocurrency Volatility Prediction 
+# MSc Data Science Coursework – University of Roehampton
 #
-# Outputs created in current working directory:
-#   outputs/, figures/, models/
 # ============================================================
 
 import os
