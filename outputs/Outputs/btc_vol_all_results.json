@@ -1,0 +1,302 @@
+{
+  "runtime_min": 4.07323690255483,
+  "tweets_used": 900,
+  "sentiment_days": 9,
+  "results": [
+    {
+      "experiment": "multimodal_full",
+      "target_log_transform": true,
+      "seq_len": 30,
+      "features": [
+        "Close",
+        "return",
+        "sentiment_mean",
+        "sentiment_std",
+        "tweet_volume",
+        "vol_lag_1",
+        "vol_lag_7"
+      ],
+      "model_path": "D:\\Ayush\\Deep Learning applications\\crypto_volatility_project\\models\\btc_vol_multimodal_full_best.pt",
+      "best_val_loss": 0.3192659914493561,
+      "n_eval_aligned": 125,
+      "metrics_aligned": {
+        "model": {
+          "mse": 2.6495501515455544e-05,
+          "rmse": 0.00514737812050519,
+          "mae": 0.0035053167957812548
+        },
+        "persistence": {
+          "mse": 2.052855841875388e-05,
+          "rmse": 0.004530845221231231,
+          "mae": 0.0024930418655276297
+        },
+        "rolling_mean_k=7": {
+          "mse": 6.996903023690957e-05,
+          "rmse": 0.008364749263242119,
+          "mae": 0.00649912778288126
+        },
+        "ewma_alpha=0.94": {
+          "mse": 7.094817124925119e-05,
+          "rmse": 0.008423073741173777,
+          "mae": 0.007033504401634771
+        }
+      },
+      "ci_aligned": {
+        "model": {
+          "rmse": {
+            "low": 0.004129015492415522,
+            "high": 0.006136938917536763
+          },
+          "mae": {
+            "low": 0.0028688346850685776,
+            "high": 0.004181898513343185
+          }
+        },
+        "persistence": {
+          "rmse": {
+            "low": 0.0032798291689311774,
+            "high": 0.005730747563025003
+          },
+          "mae": {
+            "low": 0.0018734887677244842,
+            "high": 0.003141332709509879
+          }
+        }
+      }
+    },
+    {
+      "experiment": "market_only",
+      "target_log_transform": true,
+      "seq_len": 30,
+      "features": [
+        "Close",
+        "return",
+        "vol_lag_1",
+        "vol_lag_7"
+      ],
+      "model_path": "D:\\Ayush\\Deep Learning applications\\crypto_volatility_project\\models\\btc_vol_market_only_best.pt",
+      "best_val_loss": 0.3238058388233185,
+      "n_eval_aligned": 125,
+      "metrics_aligned": {
+        "model": {
+          "mse": 2.6000676371040754e-05,
+          "rmse": 0.0050990858367986665,
+          "mae": 0.0034728702157735825
+        },
+        "persistence": {
+          "mse": 2.052855841875388e-05,
+          "rmse": 0.004530845221231231,
+          "mae": 0.0024930418655276297
+        },
+        "rolling_mean_k=7": {
+          "mse": 6.996903023690957e-05,
+          "rmse": 0.008364749263242119,
+          "mae": 0.00649912778288126
+        },
+        "ewma_alpha=0.94": {
+          "mse": 7.094817124925119e-05,
+          "rmse": 0.008423073741173777,
+          "mae": 0.007033504401634771
+        }
+      },
+      "ci_aligned": {
+        "model": {
+          "rmse": {
+            "low": 0.0040874429184968005,
+            "high": 0.006056432878210782
+          },
+          "mae": {
+            "low": 0.002847718488192186,
+            "high": 0.00414014927810058
+          }
+        },
+        "persistence": {
+          "rmse": {
+            "low": 0.0032798291689311774,
+            "high": 0.005730747563025003
+          },
+          "mae": {
+            "low": 0.0018734887677244842,
+            "high": 0.003141332709509879
+          }
+        }
+      }
+    },
+    {
+      "experiment": "no_lag_features",
+      "target_log_transform": true,
+      "seq_len": 30,
+      "features": [
+        "Close",
+        "return",
+        "sentiment_mean",
+        "sentiment_std",
+        "tweet_volume"
+      ],
+      "model_path": "D:\\Ayush\\Deep Learning applications\\crypto_volatility_project\\models\\btc_vol_no_lag_features_best.pt",
+      "best_val_loss": 0.8023157715797424,
+      "n_eval_aligned": 125,
+      "metrics_aligned": {
+        "model": {
+          "mse": 0.00012369707110337913,
+          "rmse": 0.011121918499223914,
+          "mae": 0.009811119176447392
+        },
+        "persistence": {
+          "mse": 2.052855841875388e-05,
+          "rmse": 0.004530845221231231,
+          "mae": 0.0024930418655276297
+        },
+        "rolling_mean_k=7": {
+          "mse": 6.996903023690957e-05,
+          "rmse": 0.008364749263242119,
+          "mae": 0.00649912778288126
+        },
+        "ewma_alpha=0.94": {
+          "mse": 7.094817124925119e-05,
+          "rmse": 0.008423073741173777,
+          "mae": 0.007033504401634771
+        }
+      },
+      "ci_aligned": {
+        "model": {
+          "rmse": {
+            "low": 0.010298865331722879,
+            "high": 0.011941385143349439
+          },
+          "mae": {
+            "low": 0.008933960529975592,
+            "high": 0.010731847397983075
+          }
+        },
+        "persistence": {
+          "rmse": {
+            "low": 0.0032798291689311774,
+            "high": 0.005730747563025003
+          },
+          "mae": {
+            "low": 0.0018734887677244842,
+            "high": 0.003141332709509879
+          }
+        }
+      }
+    },
+    {
+      "experiment": "price_return_only",
+      "target_log_transform": true,
+      "seq_len": 30,
+      "features": [
+        "Close",
+        "return"
+      ],
+      "model_path": "D:\\Ayush\\Deep Learning applications\\crypto_volatility_project\\models\\btc_vol_price_return_only_best.pt",
+      "best_val_loss": 0.8388915657997131,
+      "n_eval_aligned": 125,
+      "metrics_aligned": {
+        "model": {
+          "mse": 0.0001383901253575459,
+          "rmse": 0.011763933243500913,
+          "mae": 0.010469085536897182
+        },
+        "persistence": {
+          "mse": 2.052855841875388e-05,
+          "rmse": 0.004530845221231231,
+          "mae": 0.0024930418655276297
+        },
+        "rolling_mean_k=7": {
+          "mse": 6.996903023690957e-05,
+          "rmse": 0.008364749263242119,
+          "mae": 0.00649912778288126
+        },
+        "ewma_alpha=0.94": {
+          "mse": 7.094817124925119e-05,
+          "rmse": 0.008423073741173777,
+          "mae": 0.007033504401634771
+        }
+      },
+      "ci_aligned": {
+        "model": {
+          "rmse": {
+            "low": 0.010842623538095866,
+            "high": 0.012641859030472907
+          },
+          "mae": {
+            "low": 0.009528317349031567,
+            "high": 0.011405601212754845
+          }
+        },
+        "persistence": {
+          "rmse": {
+            "low": 0.0032798291689311774,
+            "high": 0.005730747563025003
+          },
+          "mae": {
+            "low": 0.0018734887677244842,
+            "high": 0.003141332709509879
+          }
+        }
+      }
+    },
+    {
+      "experiment": "no_log_target_full",
+      "target_log_transform": false,
+      "seq_len": 30,
+      "features": [
+        "Close",
+        "return",
+        "sentiment_mean",
+        "sentiment_std",
+        "tweet_volume",
+        "vol_lag_1",
+        "vol_lag_7"
+      ],
+      "model_path": "D:\\Ayush\\Deep Learning applications\\crypto_volatility_project\\models\\btc_vol_no_log_target_full_best.pt",
+      "best_val_loss": 0.22729749977588654,
+      "n_eval_aligned": 125,
+      "metrics_aligned": {
+        "model": {
+          "mse": 2.6889762011705898e-05,
+          "rmse": 0.005185533917708561,
+          "mae": 0.003589319298043847
+        },
+        "persistence": {
+          "mse": 2.052855779173954e-05,
+          "rmse": 0.00453084515203726,
+          "mae": 0.0024930422753095625
+        },
+        "rolling_mean_k=7": {
+          "mse": 6.99690253388699e-05,
+          "rmse": 0.008364748970463482,
+          "mae": 0.006499127596616745
+        },
+        "ewma_alpha=0.94": {
+          "mse": 7.094816826240452e-05,
+          "rmse": 0.008423073563872306,
+          "mae": 0.007033504217816864
+        }
+      },
+      "ci_aligned": {
+        "model": {
+          "rmse": {
+            "low": 0.004182936214972104,
+            "high": 0.006188020065041753
+          },
+          "mae": {
+            "low": 0.002947254606988281,
+            "high": 0.004284472810104489
+          }
+        },
+        "persistence": {
+          "rmse": {
+            "low": 0.0032798299625041885,
+            "high": 0.005730746711999565
+          },
+          "mae": {
+            "low": 0.0018734895434230567,
+            "high": 0.003141332797333598
+          }
+        }
+      }
+    }
+  ]
+}
