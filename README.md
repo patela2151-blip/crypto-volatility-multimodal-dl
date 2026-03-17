@@ -54,13 +54,13 @@ The goal of this project is to forecast **daily Bitcoin realised volatility** us
 ```text
 crypto-volatility-multimodal-dl/
 ├── report/
-│   └── IEEE_Conference_Template_4.pdf
+│   └── A00045830_Ayush_Bharatbhai_Patel_Report.pdf
 ├── src/
-│   └── crypto_volatility_updated_final.py
+│   └── crypto_volatility.py
 ├── outputs/
-│   ├── tables/
-│   ├── figures/
-│   └── metrics/
+│   ├── Models/
+│   ├── Figures/
+│   └── Outputs/
 ├── data/
 │   └── Bitcoin_tweets_dataset_2.csv   # if included locally
 ├── README.md
